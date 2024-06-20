@@ -11,7 +11,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -25,10 +24,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.UseEndpoints(endpoints =>
-{
-	endpoints.MapControllers();
-	endpoints.MapHub<LabHub>("/lab-hub"); // Map the SignalR hub
-});
+//app.MapControllers();
+app.MapHub<LabHub>("/lab-hub");
 
 app.Run();
